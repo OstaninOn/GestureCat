@@ -44,7 +44,7 @@ class ViewController: UIViewController {
                 })
             }
             
-            UIView.animate(withDuration: 0, delay: 0.6, animations: {
+            UIView.animate(withDuration: 0.6, delay: 0, animations: {
                 self.catView.transform = .identity
                 self.catView.center = self.view.center
             })
@@ -52,6 +52,8 @@ class ViewController: UIViewController {
         }
       
     }
+    
+    
     private func tiltTheView(with translationValue: CGPoint) {
         let translationMoved = self.view.center.x - self.catView.center.x
         let divKoef = (self.view.frame.size.width / 1) / 1
