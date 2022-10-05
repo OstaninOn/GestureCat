@@ -21,7 +21,7 @@ class TitleViewController: UIViewController {
         StartTitle.layer.insertSublayer(gradient, at: 0)
         StartTitle.layer.cornerRadius = 50
         StartTitle.layer.masksToBounds = true
-        StartTitle.layer.borderWidth = 1
+        StartTitle.layer.borderWidth = 2
     
         let gradientView = CAGradientLayer()
         gradientView.colors = [UIColor.yellow.cgColor,UIColor.systemPink.cgColor]
