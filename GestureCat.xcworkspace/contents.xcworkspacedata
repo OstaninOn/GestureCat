@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:GestureCat.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/aleksandr/Documents/X Code/dz/GestureCat/Pods/Pods.xcode">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
