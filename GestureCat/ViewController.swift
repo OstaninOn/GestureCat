@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
 
         view.addSubview(imageView)
-        imageView.frame = CGRect(x: 0, y: -200, width: 50, height: 50)
+        imageView.frame = CGRect(x: 50, y: -200, width: 50, height: 50)
         
         view.addSubview(imageViewSecond)
         imageViewSecond.frame = CGRect(x: 150, y: -150, width: 50, height: 50)
@@ -63,7 +63,6 @@ class ViewController: UIViewController {
         }
       
     }
-    
     
     private func tiltTheView(with translationValue: CGPoint) {
         let translationMoved = self.view.center.x - self.catView.center.x
