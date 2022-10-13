@@ -1,19 +1,30 @@
-//
-//  ViewController.swift
-//  GestureCat
-//
-//  Created by  aleksandr on 3.10.22.
-//
+
 
 import UIKit
 
 class ViewController: UIViewController {
-
     
+
+    let image = UIImage(named: "fish")
+    lazy var imageView = UIImageView(image: image)
+    lazy var imageViewSecond = UIImageView(image: image)
+    lazy var imageViewThird = UIImageView(image: image)
+
     @IBOutlet weak var catView: UIView!
-   
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        view.addSubview(imageView)
+        imageView.frame = CGRect(x: 0, y: -200, width: 50, height: 50)
+        
+        view.addSubview(imageViewSecond)
+        imageViewSecond.frame = CGRect(x: 150, y: -150, width: 50, height: 50)
+        
+        view.addSubview(imageViewThird)
+        imageViewThird.frame = CGRect(x: 250, y: -150, width: 50, height: 50)
     
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragTheView))
         catView.addGestureRecognizer(panGestureRecognizer)
@@ -59,6 +70,33 @@ class ViewController: UIViewController {
         let divKoef = (self.view.frame.size.width / 1) / 1
         
         catView.transform = CGAffineTransform(rotationAngle: translationMoved / divKoef)
+        
     }
+  
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 4, delay: 4, options: [
+            .curveLinear, .repeat], animations: {
+                self.imageView.frame.origin.y +=
+                self.view.frame.width + 500
+            })
+        
+        UIView.animate(withDuration: 3, delay: 5, options: [
+            .curveLinear, .repeat], animations: {
+                self.imageViewSecond.frame.origin.y +=
+                self.view.frame.width + 500
+            })
+        
+        UIView.animate(withDuration: 5, delay: 2, options: [
+            .curveLinear, .repeat], animations: {
+                self.imageViewThird.frame.origin.y +=
+                self.view.frame.width + 500
+            })
+        
+    }
+   
+    
+    
 }
 
