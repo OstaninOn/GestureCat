@@ -21,16 +21,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-aO-yCj">
-                                <rect key="frame" x="120" y="591" width="150" height="150"/>
+                                <rect key="frame" x="155" y="661" width="80" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="iV7-xr-h0F">
-                                        <rect key="frame" x="-17" y="-13" width="182" height="178"/>
+                                        <rect key="frame" x="-25" y="-25" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="JpM-kF-VLq"/>
-                                    <constraint firstAttribute="height" constant="150" id="k6A-n7-L8v"/>
+                                    <constraint firstAttribute="width" constant="80" id="JpM-kF-VLq"/>
+                                    <constraint firstAttribute="height" constant="80" id="k6A-n7-L8v"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -70,7 +70,7 @@
         <!--Title View Controller-->
         <scene sceneID="kgN-VJ-F17">
             <objects>
-                <viewController id="t9f-wx-19z" customClass="TitleViewController" customModule="GestureCat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transition" id="t9f-wx-19z" customClass="TitleViewController" customModule="GestureCat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jju-rv-zUe">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="x48-c8-iQM"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="" id="x48-c8-iQM"/>
                                 </connections>
                             </button>
                         </subviews>
