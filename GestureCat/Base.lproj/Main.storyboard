@@ -16,33 +16,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fridge" translatesAutoresizingMaskIntoConstraints="NO" id="zwp-y8-wZ7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridge" translatesAutoresizingMaskIntoConstraints="NO" id="zwp-y8-wZ7">
                                 <rect key="frame" x="-154" y="-236" width="634" height="1281"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1281" id="A8h-n8-tcQ"/>
+                                    <constraint firstAttribute="width" constant="634" id="iK8-rE-Jfd"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-aO-yCj">
-                                <rect key="frame" x="155" y="661" width="80" height="80"/>
+                                <rect key="frame" x="147" y="557" width="80" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="iV7-xr-h0F">
-                                        <rect key="frame" x="-25" y="-25" width="130" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="iV7-xr-h0F">
+                                        <rect key="frame" x="-5" y="-5" width="92" height="91"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="iV7-xr-h0F" firstAttribute="leading" secondItem="RKo-aO-yCj" secondAttribute="leading" constant="-5" id="5dF-Sg-rqn"/>
                                     <constraint firstAttribute="width" constant="80" id="JpM-kF-VLq"/>
+                                    <constraint firstAttribute="trailing" secondItem="iV7-xr-h0F" secondAttribute="trailing" constant="-7" id="SIT-lt-9ER"/>
+                                    <constraint firstItem="iV7-xr-h0F" firstAttribute="top" secondItem="RKo-aO-yCj" secondAttribute="top" constant="-5" id="Vqr-Cn-Pmb"/>
                                     <constraint firstAttribute="height" constant="80" id="k6A-n7-L8v"/>
+                                    <constraint firstAttribute="bottom" secondItem="iV7-xr-h0F" secondAttribute="bottom" constant="-6" id="tx7-Uk-hP7"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTQ-lD-qfZ">
+                                <rect key="frame" x="269" y="15" width="71" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="OLb-rj-Nuf"/>
+                                    <constraint firstAttribute="width" constant="71" id="gOb-7Z-xv4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="46"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RKo-aO-yCj" secondAttribute="bottom" constant="69" id="KhZ-LX-Meb"/>
-                            <constraint firstItem="RKo-aO-yCj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Laq-q6-YVT"/>
+                            <constraint firstAttribute="trailing" secondItem="zwp-y8-wZ7" secondAttribute="trailing" constant="-90" id="7DF-tJ-P87"/>
+                            <constraint firstItem="zwp-y8-wZ7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-236" id="Boz-Hi-k5P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RKo-aO-yCj" secondAttribute="trailing" constant="163" id="I6O-YB-KrX"/>
+                            <constraint firstItem="RTQ-lD-qfZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="15" id="Jne-N3-w7M"/>
+                            <constraint firstAttribute="trailing" secondItem="RTQ-lD-qfZ" secondAttribute="trailing" constant="50" id="gsv-A7-Jx9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RKo-aO-yCj" secondAttribute="bottom" constant="173" id="uPe-od-4V7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nma-Wj-e7F"/>
                     <connections>
+                        <outlet property="ScoreLebel" destination="RTQ-lD-qfZ" id="Txj-e8-Mvz"/>
                         <outlet property="catView" destination="RKo-aO-yCj" id="sKd-hR-xFM"/>
                     </connections>
                 </viewController>
@@ -75,6 +96,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="WST-Ne-svI" customClass="BackgroundImageView" customModule="GestureCat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk8-ph-CTS">
                                 <rect key="frame" x="120" y="375.66666666666669" width="150" height="150.00000000000006"/>
                                 <color key="backgroundColor" red="0.96907180550000005" green="0.32298251989999999" blue="0.056459769610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,18 +119,23 @@
                         <viewLayoutGuide key="safeArea" id="CLd-ex-eEf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="WST-Ne-svI" firstAttribute="top" secondItem="jju-rv-zUe" secondAttribute="top" id="DbQ-wO-ou8"/>
                             <constraint firstItem="Bk8-ph-CTS" firstAttribute="centerX" secondItem="CLd-ex-eEf" secondAttribute="centerX" id="HJJ-M6-Oic"/>
+                            <constraint firstAttribute="bottom" secondItem="WST-Ne-svI" secondAttribute="bottom" id="VYS-9h-Dyx"/>
+                            <constraint firstItem="WST-Ne-svI" firstAttribute="leading" secondItem="jju-rv-zUe" secondAttribute="leading" id="gBG-Bj-XRz"/>
                             <constraint firstItem="Bk8-ph-CTS" firstAttribute="centerY" secondItem="CLd-ex-eEf" secondAttribute="centerY" id="hgy-Jf-uaS"/>
+                            <constraint firstAttribute="trailing" secondItem="WST-Ne-svI" secondAttribute="trailing" id="mxq-0o-caH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9eZ-bb-P0u"/>
                     <connections>
+                        <outlet property="BackgroundImage" destination="WST-Ne-svI" id="Zgy-MS-cLC"/>
                         <outlet property="StartTitle" destination="Bk8-ph-CTS" id="WQ9-eI-h2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdb-Zq-biW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="14"/>
+            <point key="canvasLocation" x="370.76923076923077" y="13.507109004739336"/>
         </scene>
     </scenes>
     <resources>
