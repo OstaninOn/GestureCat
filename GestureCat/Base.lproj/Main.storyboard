@@ -108,7 +108,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start" titleAlignment="automatic">
-                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="43"/>
+                                    <fontDescription key="titleFontDescription" name="Copperplate" family="Copperplate" pointSize="43"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>

@@ -19,11 +19,15 @@ class ViewController: UIViewController {
     lazy var imageSausageFirst = UIImageView(image: imageSausage)
     lazy var imagSausageSecond = UIImageView(image: imageSausage)
     
+    lazy var catX: CGFloat = view.frame.width / 2
+    lazy var catY: CGFloat = view.frame.height * 2 / 3
+    
     var isGaming = true
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var catView: UIView!
+    @IBOutlet weak var catView: UIImageView!
+    //    @IBOutlet weak var catView: UIView!
     @IBOutlet weak var ScoreLebel: UILabel!
     var Score: Int = 0
     
@@ -35,6 +39,10 @@ class ViewController: UIViewController {
     }()
     
     // MARK: - Override methods
+    
+    override func viewDidLayoutSubviews() {
+        catView.center = CGPoint(x: catX, y: catY)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +64,7 @@ class ViewController: UIViewController {
         view.addSubview(imagSausageSecond)
         imagSausageSecond.frame = CGRect(x: 300, y: -60, width: 60, height: 60)
         
-        
+        catView.isUserInteractionEnabled = true
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragTheView))
         catView.addGestureRecognizer(panGestureRecognizer)
         
@@ -70,6 +78,7 @@ class ViewController: UIViewController {
     @objc func dragTheView(recognizer: UIPanGestureRecognizer) {
         
         if recognizer.state == .began {
+            //
         } else if recognizer.state == .changed {
             
             let translation = recognizer.translation(in: self.view)
@@ -79,6 +88,8 @@ class ViewController: UIViewController {
             let newY = catView.center.y + translation.y
             
             catView.center = CGPoint(x: newX, y: newY)
+            catX = newX
+            catY = newY
             recognizer.setTranslation(CGPoint.zero, in: self.view)
         } else if recognizer.state == .ended {
             
@@ -176,8 +187,8 @@ class ViewController: UIViewController {
             isGaming = false
             
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
-            let ViewBack = storyboard?.instantiateViewController(withIdentifier: "transition")
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: { [self]_ in self.navigationController?.pushViewController(ViewBack!, animated: true)
+            guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: { [self]_ in self.navigationController?.pushViewController(viewBack, animated: true)
             })
             
             alert.addAction(okButton)
@@ -199,12 +210,14 @@ class ViewController: UIViewController {
             self.Score += 1
             self.ScoreLebel.text = String(self.Score)
             
+            
             imageView.frame = CGRect(x: 30, y: -100, width: 50, height: 50)
             UIView.animate(withDuration: 6, delay: 4, options: [
                 .curveLinear, .repeat], animations: {
                     self.imageView.frame.origin.y +=
                     self.view.frame.width + 800
                 })
+            
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -227,6 +240,7 @@ class ViewController: UIViewController {
                     self.imageViewSecond.frame.origin.y +=
                     self.view.frame.width + 600
                 })
+            
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -243,6 +257,7 @@ class ViewController: UIViewController {
             
             Score += 1
             ScoreLebel.text = String(Score)
+            
             
             imageViewThird.frame = CGRect(x: 300, y: -150, width: 50, height: 50)
             UIView.animate(withDuration: 8, delay: 2, options: [
@@ -303,6 +318,8 @@ class ViewController: UIViewController {
         }
 
     }
+    
+    
     
     func checkIntersect(_ first: UIView, _ second: UIView) -> Bool {
         guard let firstFrame = first.layer.presentation()?.frame,
