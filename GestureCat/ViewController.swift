@@ -88,6 +88,9 @@ class ViewController: UIViewController {
         
        
         timer = Timer.scheduledTimer(timeInterval: 1.1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        
+        let RezultDefault = UserDefaults.standard
+        Rezult = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
     }
    
     @objc func tick() {
@@ -196,23 +199,6 @@ class ViewController: UIViewController {
         
         RezultLebel.text = String(Rezult)
         ScoreLebel.text = String(Score)
-        let RezultDefault = UserDefaults.standard
-        
-                                    //  СОХРАНЕНИНЕ РЕЗУЛЬТАТА ИГРЫ ПЕЕРЕД ВЫХОДОМ
-        
-        if (RezultDefault.value(forKey: "Rezult") != nil){
-            Rezult = (RezultDefault.value(forKey: "Rezult") as! Int?)!
-            RezultLebel.text = String(format: "", Rezult)
-            ScoreLebel.text = String(format: "0", Score)
-            if (Score > Rezult) {
-                Rezult = Score
-                RezultLebel.text = String(format: "Rezult", Rezult)
-                
-                let RezultDefault = UserDefaults.standard
-                RezultDefault.setValue(Rezult, forKey: "Rezult")
-                RezultDefault.synchronize()
-            }
-        }
     }
     
     func intersects() {
@@ -229,6 +215,12 @@ class ViewController: UIViewController {
             imageSausageFirst.layer.removeAllAnimations()
             imagSausageSecond.layer.removeAllAnimations()
             isGaming = false
+            
+            let RezultDefault = UserDefaults.standard
+            let currentScore = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
+            let newScore = max(currentScore, Score)
+            RezultDefault.set(newScore, forKey: "Rezult")
+            RezultDefault.synchronize()
 
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
