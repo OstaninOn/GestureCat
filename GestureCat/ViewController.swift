@@ -86,9 +86,7 @@ class ViewController: UIViewController {
         catView.layer.shadowOpacity = 0.5
         catView.layer.shadowRadius = 2
         
-        ScoreLebel.layer.cornerRadius = 25
-        ScoreLebel.layer.borderWidth = 2
-        
+       
         timer = Timer.scheduledTimer(timeInterval: 1.1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
    
