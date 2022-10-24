@@ -2,11 +2,10 @@
 //  CustomViews.swift
 //  GestureCat
 //
-//  Created by  aleksandr on 20.10.22.
+//  Created by  aleksandr
 //
 
 import UIKit
 
 class BackgroundImageView: UIImageView, BlurView {
 }
-

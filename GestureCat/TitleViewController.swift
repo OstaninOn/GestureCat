@@ -13,6 +13,12 @@ class TitleViewController: UIViewController {
         
     @IBOutlet weak var BackgroundImage: BackgroundImageView!
     
+    @IBOutlet weak var catDinaic: UIImageView!
+    
+        var animator: UIDynamicAnimator!
+        var gravity: UIGravityBehavior!
+        var collision: UICollisionBehavior!
+    
         override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -30,8 +36,24 @@ class TitleViewController: UIViewController {
             gradientView.colors = [UIColor.black.cgColor,UIColor.systemPink.cgColor]
         gradientView.frame = view.bounds
         view.layer.insertSublayer(gradientView, at: 0)
-        view.layer.masksToBounds = true
+        view.layer.masksToBounds = false
         
+                    
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [catDinaic,])
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: [catDinaic,StartTitle])
+        collision.addBoundary(withIdentifier: "StartTitle" as NSCopying, for: UIBezierPath(rect: StartTitle.frame))
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+
+          
+        let itemBehaviour = UIDynamicItemBehavior(items: [catDinaic,StartTitle])
+            itemBehaviour.elasticity = 1
+        animator.addBehavior(itemBehaviour)
+            
+          
     }
 
 }

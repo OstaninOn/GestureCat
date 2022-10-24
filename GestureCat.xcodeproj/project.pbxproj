@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F166FA028FFE064004BD2B1 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F166F9F28FFE064004BD2B1 /* BlurView.swift */; };
-		1FBD5FEA290154C40015E15C /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD5FE9290154C40015E15C /* CustomViews.swift */; };
+		1FA5077C2906EBB700B1D363 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5077B2906EBB700B1D363 /* CustomViews.swift */; };
 		1FCE36ED28EAE189000BFEC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE36EC28EAE189000BFEC4 /* AppDelegate.swift */; };
 		1FCE36EF28EAE189000BFEC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE36EE28EAE189000BFEC4 /* SceneDelegate.swift */; };
 		1FCE36F128EAE189000BFEC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE36F028EAE189000BFEC4 /* ViewController.swift */; };
@@ -21,7 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1F166F9F28FFE064004BD2B1 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = SOURCE_ROOT; };
-		1FBD5FE9290154C40015E15C /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		1FA5077B2906EBB700B1D363 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		1FCE36E928EAE189000BFEC4 /* GestureCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestureCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCE36EC28EAE189000BFEC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FCE36EE28EAE189000BFEC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				1FCE36F028EAE189000BFEC4 /* ViewController.swift */,
 				1F166F9F28FFE064004BD2B1 /* BlurView.swift */,
 				1FCE370228EAE2AA000BFEC4 /* TitleViewController.swift */,
-				1FBD5FE9290154C40015E15C /* CustomViews.swift */,
+				1FA5077B2906EBB700B1D363 /* CustomViews.swift */,
 				1FCE36F228EAE189000BFEC4 /* Main.storyboard */,
 				1FCE36F528EAE18A000BFEC4 /* Assets.xcassets */,
 				1FCE36F728EAE18A000BFEC4 /* LaunchScreen.storyboard */,
@@ -218,7 +218,7 @@
 				1FCE36F128EAE189000BFEC4 /* ViewController.swift in Sources */,
 				1F166FA028FFE064004BD2B1 /* BlurView.swift in Sources */,
 				1FCE370328EAE2AA000BFEC4 /* TitleViewController.swift in Sources */,
-				1FBD5FEA290154C40015E15C /* CustomViews.swift in Sources */,
+				1FA5077C2906EBB700B1D363 /* CustomViews.swift in Sources */,
 				1FCE36ED28EAE189000BFEC4 /* AppDelegate.swift in Sources */,
 				1FCE36EF28EAE189000BFEC4 /* SceneDelegate.swift in Sources */,
 			);
