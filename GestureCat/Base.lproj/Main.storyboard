@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="13.507109004739336"/>
+            <point key="canvasLocation" x="1265" y="-434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Uc-a0-WwU">
@@ -131,35 +131,63 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk8-ph-CTS">
-                                <rect key="frame" x="122" y="302" width="146" height="150"/>
-                                <color key="backgroundColor" red="0.96907180550000005" green="0.32298251989999999" blue="0.056459769610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="80" y="394" width="230" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="0TW-CH-Yro"/>
+                                    <constraint firstAttribute="height" constant="55" id="4ZU-zp-5Vy"/>
+                                </constraints>
                                 <buttonConfiguration key="configuration" style="plain" title="Start" titleAlignment="automatic">
-                                    <fontDescription key="titleFontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="41"/>
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="33"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="" id="x48-c8-iQM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1e-Vq-RRV" userLabel="top record">
+                                <rect key="frame" x="80" y="479" width="230" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="h5P-g0-0K1"/>
+                                    <constraint firstAttribute="width" constant="230" id="pDP-eW-X7I"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" title="Top Record" titleAlignment="automatic">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjy-8A-eXk" userLabel="settings">
+                                <rect key="frame" x="80" y="564" width="230" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="d0R-yL-xjk"/>
+                                    <constraint firstAttribute="width" constant="230" id="v8E-bE-fbB"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" title="Settings" titleAlignment="automatic">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CLd-ex-eEf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Bk8-ph-CTS" firstAttribute="centerX" secondItem="WST-Ne-svI" secondAttribute="centerX" id="3Wb-i5-tX2"/>
+                            <constraint firstItem="M1e-Vq-RRV" firstAttribute="top" secondItem="Bk8-ph-CTS" secondAttribute="bottom" constant="30" id="1nI-Pv-4np"/>
                             <constraint firstItem="WST-Ne-svI" firstAttribute="top" secondItem="jju-rv-zUe" secondAttribute="top" id="DbQ-wO-ou8"/>
+                            <constraint firstItem="Bk8-ph-CTS" firstAttribute="top" secondItem="WST-Ne-svI" secondAttribute="bottom" constant="-450" id="Q9f-3b-FDp"/>
+                            <constraint firstItem="cjy-8A-eXk" firstAttribute="centerX" secondItem="M1e-Vq-RRV" secondAttribute="centerX" id="TK7-wB-YD1"/>
                             <constraint firstAttribute="bottom" secondItem="WST-Ne-svI" secondAttribute="bottom" id="VYS-9h-Dyx"/>
                             <constraint firstItem="WST-Ne-svI" firstAttribute="leading" secondItem="jju-rv-zUe" secondAttribute="leading" id="gBG-Bj-XRz"/>
+                            <constraint firstItem="cjy-8A-eXk" firstAttribute="top" secondItem="M1e-Vq-RRV" secondAttribute="bottom" constant="30" id="j35-7H-TZX"/>
                             <constraint firstAttribute="trailing" secondItem="WST-Ne-svI" secondAttribute="trailing" id="mxq-0o-caH"/>
-                            <constraint firstItem="WST-Ne-svI" firstAttribute="top" secondItem="Bk8-ph-CTS" secondAttribute="bottom" constant="-452.00000000000006" id="pdn-Qq-28N"/>
-                            <constraint firstItem="Bk8-ph-CTS" firstAttribute="width" secondItem="WST-Ne-svI" secondAttribute="width" multiplier="0.374359" id="u9v-ku-it2"/>
-                            <constraint firstItem="Bk8-ph-CTS" firstAttribute="height" secondItem="WST-Ne-svI" secondAttribute="height" multiplier="0.177725" id="uko-K4-dEX"/>
+                            <constraint firstItem="Bk8-ph-CTS" firstAttribute="centerX" secondItem="WST-Ne-svI" secondAttribute="centerX" id="uUC-TV-4D1"/>
+                            <constraint firstItem="M1e-Vq-RRV" firstAttribute="centerX" secondItem="Bk8-ph-CTS" secondAttribute="centerX" id="yKH-ZQ-Owe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9eZ-bb-P0u"/>
                     <connections>
                         <outlet property="BackgroundImage" destination="WST-Ne-svI" id="Zgy-MS-cLC"/>
+                        <outlet property="Settings" destination="cjy-8A-eXk" id="8r7-4x-qcn"/>
                         <outlet property="StartTitle" destination="Bk8-ph-CTS" id="WQ9-eI-h2T"/>
+                        <outlet property="TopRecord" destination="M1e-Vq-RRV" id="GAQ-0V-z2j"/>
                         <outlet property="catDinaic" destination="oiL-A5-Zjg" id="Cnu-Il-fOq"/>
                     </connections>
                 </viewController>
