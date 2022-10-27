@@ -9,28 +9,72 @@ import UIKit
 
 class TitleViewController: UIViewController {
     
+    @IBOutlet weak var TopRecord: UIButton!
+    
+    @IBOutlet weak var Settings: UIButton!
+    
     @IBOutlet weak var StartTitle: UIView!
         
+    @IBOutlet weak var BackgroundImage: BackgroundImageView!
+    
+    @IBOutlet weak var catDinaic: UIImageView!
+    
+        var animator: UIDynamicAnimator!
+        var gravity: UIGravityBehavior!
+        var collision: UICollisionBehavior!
     
         override func viewDidLoad() {
         super.viewDidLoad()
 
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemGray6.cgColor,UIColor.green.cgColor]
-        gradient.frame = StartTitle.bounds
-        StartTitle.layer.insertSublayer(gradient, at: 0)
-        StartTitle.layer.cornerRadius = 50
+            BackgroundImage.makeBlur()
+
+            
+        let gradientTopRecord = CAGradientLayer()
+            gradientTopRecord.colors = [UIColor.systemGray6.cgColor,UIColor.systemYellow.cgColor,]
+        gradientTopRecord.frame = TopRecord.bounds
+          TopRecord.layer.insertSublayer(gradientTopRecord, at: 0)
+          TopRecord.layer.cornerRadius = 15
+          TopRecord.layer.masksToBounds = true
+          TopRecord.layer.borderWidth = 1
+         
+            let gradientStartTitle = CAGradientLayer()
+                gradientStartTitle.colors = [UIColor.systemGray6.cgColor,UIColor.systemGreen.cgColor,]
+            gradientStartTitle.frame = StartTitle.bounds
+        StartTitle.layer.insertSublayer(gradientStartTitle, at: 0)
+        StartTitle.layer.cornerRadius = 15
         StartTitle.layer.masksToBounds = true
-        StartTitle.layer.borderWidth = 2
-    
+        StartTitle.layer.borderWidth = 1
+            
+            let gradientSettings = CAGradientLayer()
+                gradientSettings.colors = [UIColor.systemGray6.cgColor,UIColor.systemRed.cgColor,]
+            gradientSettings.frame = Settings.bounds
+            Settings.layer.insertSublayer(gradientSettings, at: 0)
+            Settings.layer.cornerRadius = 15
+            Settings.layer.masksToBounds = true
+            Settings.layer.borderWidth = 1
+
         let gradientView = CAGradientLayer()
-        gradientView.colors = [UIColor.yellow.cgColor,UIColor.systemPink.cgColor]
+            gradientView.colors = [UIColor.black.cgColor,UIColor.systemPink.cgColor]
         gradientView.frame = view.bounds
         view.layer.insertSublayer(gradientView, at: 0)
-        view.layer.masksToBounds = true
+        view.layer.masksToBounds = false
         
+                    
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [catDinaic])
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: [catDinaic])
+        collision.addBoundary(withIdentifier: "StartTitle" as NSCopying, for: UIBezierPath(rect: StartTitle.frame))
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
 
-        
+          
+        let itemBehaviour = UIDynamicItemBehavior(items: [catDinaic])
+            itemBehaviour.elasticity = 1
+        animator.addBehavior(itemBehaviour)
+            
     }
+
 
 }
