@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="55" id="4ZU-zp-5Vy"/>
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="plain" title="Start" titleAlignment="automatic">
-                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="33"/>
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
