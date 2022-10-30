@@ -30,26 +30,26 @@ class TitleViewController: UIViewController {
 
             
         let gradientTopRecord = CAGradientLayer()
-            gradientTopRecord.colors = [UIColor.systemGray6.cgColor,UIColor.systemYellow.cgColor,]
+            gradientTopRecord.colors = [UIColor.magenta.cgColor,UIColor.systemYellow.cgColor,]
         gradientTopRecord.frame = TopRecord.bounds
           TopRecord.layer.insertSublayer(gradientTopRecord, at: 0)
-          TopRecord.layer.cornerRadius = 15
+          TopRecord.layer.cornerRadius = 17
           TopRecord.layer.masksToBounds = true
           TopRecord.layer.borderWidth = 1
          
             let gradientStartTitle = CAGradientLayer()
-                gradientStartTitle.colors = [UIColor.systemGray6.cgColor,UIColor.systemGreen.cgColor,]
+                gradientStartTitle.colors = [UIColor.white.cgColor,UIColor.systemGreen.cgColor,]
             gradientStartTitle.frame = StartTitle.bounds
         StartTitle.layer.insertSublayer(gradientStartTitle, at: 0)
-        StartTitle.layer.cornerRadius = 15
+        StartTitle.layer.cornerRadius = 17
         StartTitle.layer.masksToBounds = true
         StartTitle.layer.borderWidth = 1
             
             let gradientSettings = CAGradientLayer()
-                gradientSettings.colors = [UIColor.systemGray6.cgColor,UIColor.systemRed.cgColor,]
+                gradientSettings.colors = [UIColor.systemFill.cgColor,UIColor.systemRed.cgColor,]
             gradientSettings.frame = Settings.bounds
             Settings.layer.insertSublayer(gradientSettings, at: 0)
-            Settings.layer.cornerRadius = 15
+            Settings.layer.cornerRadius = 17
             Settings.layer.masksToBounds = true
             Settings.layer.borderWidth = 1
 
@@ -71,7 +71,7 @@ class TitleViewController: UIViewController {
 
           
         let itemBehaviour = UIDynamicItemBehavior(items: [catDinaic])
-            itemBehaviour.elasticity = 1
+            itemBehaviour.elasticity = 1.05
         animator.addBehavior(itemBehaviour)
             
     }
