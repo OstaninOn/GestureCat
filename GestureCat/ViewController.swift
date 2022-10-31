@@ -104,7 +104,6 @@ class ViewController: UIViewController {
     @objc func dragTheView(recognizer: UIPanGestureRecognizer) {
         
         if recognizer.state == .began {
-            //
         } else if recognizer.state == .changed {
             
             let translation = recognizer.translation(in: self.view)
@@ -223,7 +222,12 @@ class ViewController: UIViewController {
             RezultDefault.set(newScore, forKey: "Rezult")
             RezultDefault.synchronize()
             
-            //UserDefaults.standard.set(score,forKey: "firstScore")
+            UserDefaults.standard.set(rezult,forKey: "firstScore")
+            
+            if score < rezult {
+                UserDefaults.standard.set(score,forKey: "secondScore")
+            }
+           
             
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }

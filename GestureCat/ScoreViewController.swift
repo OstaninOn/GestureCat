@@ -38,7 +38,10 @@ class ScrolViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateScores()
+        
     }
+    
     
     private func updateScores() {
         
@@ -61,24 +64,7 @@ class ScrolViewController: UIViewController {
         secondScoreLabel.text = secondScore.makeScore()
         thirdScoreLabel.text = thirdScore.makeScore()
         
-        
     }
-    
-    @IBAction func resetScores(_ sender: Any) {
-        //
-        //        let storage = UserDefaults.standard
-        //
-        //
-        //            storage.set("", forKey: "firstScoreName")
-        //            storage.set("", forKey: "secondScoreName")
-        //            storage.set("", forKey: "thirdScoreName")
-        //
-        //            storage.set(0, forKey: "firstScore")
-        //            storage.set(0, forKey: "secondScore")
-        //            storage.set(0, forKey: "thirdScore")
-        //
-        //            updateScores()
-        //
-           }
-    }
+   
+}
     

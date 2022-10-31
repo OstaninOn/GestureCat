@@ -211,18 +211,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="59c7656f62b9315eb2e43b2c" translatesAutoresizingMaskIntoConstraints="NO" id="8bc-oM-epc">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOs-5g-jKm">
-                                <rect key="frame" x="278" y="29" width="90" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="cYM-sx-EFl"/>
-                                    <constraint firstAttribute="height" constant="35" id="geZ-A1-t2Z"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="resset"/>
-                                <connections>
-                                    <action selector="resetScores:" destination="xmS-aO-cL7" eventType="touchUpInside" id="rbx-sY-uHT"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9K-Mi-5KP">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -386,8 +374,6 @@
                             <constraint firstItem="8bc-oM-epc" firstAttribute="trailing" secondItem="IxO-rF-2CP" secondAttribute="trailing" id="ICL-qp-GHS"/>
                             <constraint firstItem="8bc-oM-epc" firstAttribute="top" secondItem="IxO-rF-2CP" secondAttribute="top" id="MUn-3C-Hpg"/>
                             <constraint firstAttribute="bottom" secondItem="8bc-oM-epc" secondAttribute="bottom" id="YBK-V3-YJe"/>
-                            <constraint firstItem="sOs-5g-jKm" firstAttribute="top" secondItem="IxO-rF-2CP" secondAttribute="top" constant="29" id="ZEz-UV-eXT"/>
-                            <constraint firstAttribute="trailing" secondItem="sOs-5g-jKm" secondAttribute="trailing" constant="22" id="oca-uz-gBu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QEH-o9-76N"/>

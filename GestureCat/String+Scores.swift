@@ -11,10 +11,11 @@ extension String {
     func makeName() -> String {
         "Name: \(self)"
     }
-    func makeScore() -> String {
-        "Score: \(self)"
-    }
 }
+//    func makeScore() -> String {
+//        "Score: \(self)"
+//    }
+//}
 
 extension Int {
     func makeScore() -> String {
