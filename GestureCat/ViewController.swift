@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -88,9 +86,14 @@ class ViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1.1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         
-        let RezultDefault = UserDefaults.standard
-        rezult = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
+        rezult = UserDefaults.standard.value(forKey: "firstScore") as? Int ?? 0
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        saveRecord()
     }
     
     @objc func tick() {
@@ -215,19 +218,8 @@ class ViewController: UIViewController {
             imageSausageFirst.layer.removeAllAnimations()
             imagSausageSecond.layer.removeAllAnimations()
             isGaming = false
-         
-            let RezultDefault = UserDefaults.standard
-            let currentScore = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
-            let newScore = max(currentScore, score)
-            RezultDefault.set(newScore, forKey: "Rezult")
-            RezultDefault.synchronize()
             
-            UserDefaults.standard.set(rezult,forKey: "firstScore")
-            
-            if score < rezult {
-                UserDefaults.standard.set(score,forKey: "secondScore")
-            }
-           
+            saveRecord()
             
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
@@ -243,6 +235,26 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    func saveRecord() {
+        let storage = UserDefaults.standard
+        
+        var firstScore = storage.integer(forKey: "firstScore")
+        var secondScore = storage.integer(forKey: "secondScore")
+        var thirdScore = storage.integer(forKey: "thirdScore")
+        
+        if score < thirdScore { return }
+        
+        if score > firstScore { swap(&firstScore, &score) }
+        if score > secondScore { swap(&secondScore, &score) }
+        if score > thirdScore { swap(&thirdScore, &score) }
+        
+        storage.set(firstScore, forKey: "firstScore")
+        storage.set(secondScore, forKey: "secondScore")
+        storage.set(thirdScore, forKey: "thirdScore")
+        score = 0
+    }
+    
     
     func intersectsFirstFish() {
         guard isGaming else { return }
