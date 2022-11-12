@@ -1,11 +1,8 @@
-
-
 import UIKit
 
 class ViewController: UIViewController {
-
-    // MARK: - Private properties
     
+    // MARK: - Private properties
     private let image = UIImage(named: "fish")
     private lazy var imageView = UIImageView(image: image)
     private lazy var imageViewSecond = UIImageView(image: image)
@@ -41,9 +38,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var RezultLebel: UILabel!
     
-    var Score = 0
+    var score = 0
     
-    var Rezult = 0
+    var rezult = 0
     
     let visualEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .dark)
@@ -60,7 +57,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.addSubview(imageView)
         imageView.frame = CGRect(x: 30, y: -100, width: 50, height: 50)
         view.addSubview(imageViewSecond)
@@ -86,13 +83,19 @@ class ViewController: UIViewController {
         catView.layer.shadowOpacity = 0.5
         catView.layer.shadowRadius = 2
         
-       
+        
         timer = Timer.scheduledTimer(timeInterval: 1.1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         
-        let RezultDefault = UserDefaults.standard
-        Rezult = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
+        rezult = UserDefaults.standard.value(forKey: "firstScore") as? Int ?? 0
+        
     }
-   
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        saveRecord()
+    }
+    
     @objc func tick() {
         time -= 1
         if time == 0 {
@@ -100,11 +103,10 @@ class ViewController: UIViewController {
             timerLabel.text = nil
         }
     }
-   
+    
     @objc func dragTheView(recognizer: UIPanGestureRecognizer) {
         
         if recognizer.state == .began {
-            //
         } else if recognizer.state == .changed {
             
             let translation = recognizer.translation(in: self.view)
@@ -197,8 +199,9 @@ class ViewController: UIViewController {
         
         setupVisualEffectView()
         
-        RezultLebel.text = String(Rezult)
-        ScoreLebel.text = String(Score)
+        RezultLebel.text = String(rezult)
+        ScoreLebel.text = String(score)
+        
     }
     
     func intersects() {
@@ -216,15 +219,12 @@ class ViewController: UIViewController {
             imagSausageSecond.layer.removeAllAnimations()
             isGaming = false
             
-            let RezultDefault = UserDefaults.standard
-            let currentScore = RezultDefault.value(forKey: "Rezult") as? Int ?? 0
-            let newScore = max(currentScore, Score)
-            RezultDefault.set(newScore, forKey: "Rezult")
-            RezultDefault.synchronize()
-
+            saveRecord()
+            
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
             let okButton = UIAlertAction(title: "OK", style: .default, handler: { [self]_ in self.navigationController?.pushViewController(viewBack, animated: true)
+                
             })
             
             alert.addAction(okButton)
@@ -237,16 +237,38 @@ class ViewController: UIViewController {
         }
     }
     
+    func saveRecord() {
+        
+        let storage = UserDefaults.standard
+        
+        var firstScore = storage.integer(forKey: "firstScore")
+        var secondScore = storage.integer(forKey: "secondScore")
+        var thirdScore = storage.integer(forKey: "thirdScore")
+        
+        if score < thirdScore { return }
+        
+        if score > firstScore { swap(&firstScore, &score) }
+        if score > secondScore { swap(&secondScore, &score) }
+        if score > thirdScore { swap(&thirdScore, &score) }
+        
+        storage.set(firstScore, forKey: "firstScore")
+        storage.set(secondScore, forKey: "secondScore")
+        storage.set(thirdScore, forKey: "thirdScore")
+        score = 0
+        
+    }
+    
+    
     func intersectsFirstFish() {
         guard isGaming else { return }
         if checkIntersect(catView, imageView){
             print("fish")
             isGaming = true
             
-            self.Score += 1
-            self.ScoreLebel.text = String(self.Score)
+            score += 1
+            ScoreLebel.text = String(score)
             
-            RezultLebel.text = String(Rezult)
+            RezultLebel.text = String(rezult)
             
             imageView.frame = CGRect(x: 30, y: -100, width: 50, height: 50)
             UIView.animate(withDuration: 6, delay: 4, options: [
@@ -260,18 +282,18 @@ class ViewController: UIViewController {
             self.intersectsFirstFish()
         }
     }
-   
+    
     func intersectsSecondFish() {
         guard isGaming else { return }
         if checkIntersect(catView, imageViewSecond){
             print("fish")
             isGaming = true
             
-            Score += 1
-            ScoreLebel.text = String(Score)
-        
-            RezultLebel.text = String(Rezult)
-
+            score += 1
+            ScoreLebel.text = String(score)
+            
+            RezultLebel.text = String(rezult)
+            
             imageViewSecond.frame = CGRect(x: 150, y: -150, width: 50, height: 50)
             UIView.animate(withDuration: 3, delay: 5, options: [
                 .curveLinear, .repeat], animations: {
@@ -291,10 +313,10 @@ class ViewController: UIViewController {
             print("fish")
             isGaming = true
             
-            Score += 1
-            ScoreLebel.text = String(Score)
+            score += 1
+            ScoreLebel.text = String(score)
             
-            RezultLebel.text = String(Rezult)
+            RezultLebel.text = String(rezult)
             
             imageViewThird.frame = CGRect(x: 300, y: -150, width: 50, height: 50)
             UIView.animate(withDuration: 8, delay: 2, options: [
@@ -315,10 +337,10 @@ class ViewController: UIViewController {
             print("fish")
             isGaming = true
             
-            Score += 1
-            ScoreLebel.text = String(Score)
+            score += 1
+            ScoreLebel.text = String(score)
             
-            RezultLebel.text = String(Rezult)
+            RezultLebel.text = String(rezult)
             
             imageSausageFirst.frame = CGRect(x: 80, y: -150, width: 60, height: 60)
             UIView.animate(withDuration: 5, delay: 3, options: [
@@ -340,10 +362,10 @@ class ViewController: UIViewController {
             print("fish")
             isGaming = true
             
-            Score += 1
-            ScoreLebel.text = String(Score)
+            score += 1
+            ScoreLebel.text = String(score)
             
-            RezultLebel.text = String(Rezult)
+            RezultLebel.text = String(rezult)
             
             imagSausageSecond.frame = CGRect(x: 300, y: -60, width: 60, height: 60)
             UIView.animate(withDuration: 5, delay: 8, options: [
@@ -352,18 +374,18 @@ class ViewController: UIViewController {
                     self.view.frame.width + 400
                 })
         }
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.intersectsSausageSecond()
         }
     }
-   
+    
     func checkIntersect(_ first: UIView, _ second: UIView) -> Bool {
         guard let firstFrame = first.layer.presentation()?.frame,
               let secondFrame = second.layer.presentation()?.frame else { return true }
         
         return firstFrame.intersects(secondFrame)
-        }
+    }
     
     func setupVisualEffectView() {
         view.addSubview(visualEffectView)
@@ -376,10 +398,10 @@ class ViewController: UIViewController {
     
     func animateIn() {
         UIView.animate(withDuration: 2) {
-            self.visualEffectView.alpha = 1
+            self.visualEffectView.alpha = 0.7
             
         }
+        
     }
-   
 }
 
