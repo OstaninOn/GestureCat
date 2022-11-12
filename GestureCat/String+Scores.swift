@@ -20,11 +20,3 @@ extension Int {
 }
 
 
-
-
-
-extension String {
-    func makeData() -> String {
-        "data: \(self)"
-    }
-}
