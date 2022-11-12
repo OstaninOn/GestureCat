@@ -47,10 +47,10 @@ class ScrolViewController: UIViewController {
         
         let storage = UserDefaults.standard
         
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd.MM.YYYY"
-//        let date = dateFormatter.string(from: Date())
-//        self.labelData.text = date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY"
+        let date = dateFormatter.string(from: Date())
+        self.labelData.text = date
         
         firstScoreName = storage.string(forKey: "firstScoreName") ?? ""
         secondScoreName = storage.string(forKey: "secondScoreName") ?? ""
