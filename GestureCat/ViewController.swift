@@ -224,6 +224,7 @@ class ViewController: UIViewController {
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
             let okButton = UIAlertAction(title: "OK", style: .default, handler: { [self]_ in self.navigationController?.pushViewController(viewBack, animated: true)
+                
             })
             
             alert.addAction(okButton)
@@ -237,6 +238,7 @@ class ViewController: UIViewController {
     }
     
     func saveRecord() {
+        
         let storage = UserDefaults.standard
         
         var firstScore = storage.integer(forKey: "firstScore")
@@ -253,6 +255,7 @@ class ViewController: UIViewController {
         storage.set(secondScore, forKey: "secondScore")
         storage.set(thirdScore, forKey: "thirdScore")
         score = 0
+        
     }
     
     

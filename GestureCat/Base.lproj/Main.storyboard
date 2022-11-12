@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l49-qS-A8h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l49-qS-A8h">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -231,18 +231,27 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE: 100500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4X-wu-MUN">
-                                                        <rect key="frame" x="16" y="200" width="358" height="70"/>
+                                                        <rect key="frame" x="16" y="200" width="358" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="70" id="amz-QB-wmy"/>
+                                                            <constraint firstAttribute="height" constant="50" id="amz-QB-wmy"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME: TROLL " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bZ-EM-lk3">
-                                                        <rect key="frame" x="16" y="290" width="358" height="70"/>
+                                                        <rect key="frame" x="16" y="270" width="358" height="70"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="iUx-aY-2yi"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AK9-b6-lih">
+                                                        <rect key="frame" x="211" y="357" width="163" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="Gn7-Gw-P8Y"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -254,12 +263,15 @@
                                                     <constraint firstItem="m4X-wu-MUN" firstAttribute="leading" secondItem="aef-QU-zh6" secondAttribute="leading" constant="16" id="48V-Wt-NcR"/>
                                                     <constraint firstItem="0bZ-EM-lk3" firstAttribute="top" secondItem="m4X-wu-MUN" secondAttribute="bottom" constant="20" id="6Nr-da-Onf"/>
                                                     <constraint firstItem="0bZ-EM-lk3" firstAttribute="leading" secondItem="aef-QU-zh6" secondAttribute="leading" constant="16" id="6Xx-iV-IuO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AK9-b6-lih" secondAttribute="trailing" constant="16" id="8Pq-Uw-DNn"/>
                                                     <constraint firstItem="exj-oR-yJu" firstAttribute="top" secondItem="aef-QU-zh6" secondAttribute="top" constant="70" id="F57-Qc-ce4"/>
                                                     <constraint firstAttribute="trailing" secondItem="exj-oR-yJu" secondAttribute="trailing" constant="16" id="Kv3-eE-HdN"/>
                                                     <constraint firstAttribute="trailing" secondItem="m4X-wu-MUN" secondAttribute="trailing" constant="16" id="anu-4h-WFR"/>
                                                     <constraint firstAttribute="trailing" secondItem="0bZ-EM-lk3" secondAttribute="trailing" constant="16" id="gBg-eM-1Aa"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AK9-b6-lih" secondAttribute="bottom" constant="8" id="n3C-YV-1I5"/>
                                                     <constraint firstItem="m4X-wu-MUN" firstAttribute="top" secondItem="exj-oR-yJu" secondAttribute="bottom" constant="20" id="pgu-YW-4gn"/>
                                                     <constraint firstAttribute="height" constant="400" id="rYg-mk-MSy"/>
+                                                    <constraint firstItem="AK9-b6-lih" firstAttribute="leading" secondItem="aef-QU-zh6" secondAttribute="leading" constant="211" id="uom-pb-IED"/>
                                                     <constraint firstItem="exj-oR-yJu" firstAttribute="leading" secondItem="aef-QU-zh6" secondAttribute="leading" constant="16" id="zjH-aM-4lO"/>
                                                 </constraints>
                                             </view>
@@ -384,6 +396,7 @@
                         <outlet property="SecondScoreLabel" destination="uYu-hK-b1E" id="Z6j-nK-Gxz"/>
                         <outlet property="ThirdNameLabel" destination="3Vt-LQ-Buh" id="cRc-8t-vgs"/>
                         <outlet property="ThirdScoreLabel" destination="BPY-en-OIs" id="Xbg-8G-SDl"/>
+                        <outlet property="labelData" destination="AK9-b6-lih" id="aMV-s9-hgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgO-hb-Bmi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,9 +7,10 @@
 
 import UIKit
 
-
-
 class ScrolViewController: UIViewController {
+   
+    @IBOutlet weak var labelData: UILabel!
+    
     
     private lazy var firstScoreName = "TROLL 3000"
     private lazy var secondScoreName = "Vitalik"
@@ -39,13 +40,17 @@ class ScrolViewController: UIViewController {
         super.viewDidLoad()
         
         updateScores()
-        
     }
     
     
     private func updateScores() {
         
         let storage = UserDefaults.standard
+        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd.MM.YYYY"
+//        let date = dateFormatter.string(from: Date())
+//        self.labelData.text = date
         
         firstScoreName = storage.string(forKey: "firstScoreName") ?? ""
         secondScoreName = storage.string(forKey: "secondScoreName") ?? ""
@@ -63,7 +68,7 @@ class ScrolViewController: UIViewController {
         firstScoreLabel.text = firstScore.makeScore()
         secondScoreLabel.text = secondScore.makeScore()
         thirdScoreLabel.text = thirdScore.makeScore()
-        
+
     }
    
 }
