@@ -18,5 +18,3 @@ extension Int {
         "Score: \(self)"
     }
 }
-
-

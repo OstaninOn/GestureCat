@@ -92,7 +92,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        saveDate()
         saveRecord()
     }
     
@@ -220,6 +220,7 @@ class ViewController: UIViewController {
             isGaming = false
             
             saveRecord()
+            saveDate()
             
             let alert = UIAlertController(title: "GAME OVER", message: "попробуй еще раз 🙊", preferredStyle: .alert)
             guard let viewBack = storyboard?.instantiateViewController(withIdentifier: "transition") else { return }
@@ -237,9 +238,23 @@ class ViewController: UIViewController {
         }
     }
     
+    func saveDate() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let scor = storyboard.instantiateViewController(identifier: "SCR") as? ScrolViewController {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd.MM.YYYY"
+                    scor.myDate = dateFormatter.string(from: Date())
+                    show(scor, sender: nil)
+                }
+        
+    }
+
+    
     func saveRecord() {
         
         let storage = UserDefaults.standard
+        
         
         var firstScore = storage.integer(forKey: "firstScore")
         var secondScore = storage.integer(forKey: "secondScore")
@@ -250,7 +265,7 @@ class ViewController: UIViewController {
         if score > firstScore { swap(&firstScore, &score) }
         if score > secondScore { swap(&secondScore, &score) }
         if score > thirdScore { swap(&thirdScore, &score) }
-        
+       
         storage.set(firstScore, forKey: "firstScore")
         storage.set(secondScore, forKey: "secondScore")
         storage.set(thirdScore, forKey: "thirdScore")
