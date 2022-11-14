@@ -240,8 +240,6 @@ class ViewController: UIViewController {
     
     func saveDate() {
 
-        //let storage = UserDefaults.standard
-
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let scor = storyboard.instantiateViewController(identifier: "SCR") as? ScrolViewController {
                     let dateFormatter = DateFormatter()
